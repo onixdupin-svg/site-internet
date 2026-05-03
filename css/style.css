@@ -28,7 +28,7 @@
 
 .black-header {
   position: absolute;
-  top: 150px;
+  top: 200px;
   left: -10px;
   position: relative; /* ou absolute / fixed */
   z-index: 100;
