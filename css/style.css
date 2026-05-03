@@ -16,23 +16,6 @@
   z-index: 100;
 }
 
-.black-header {
-  position: relative;
-  width: 100%;
-  background: #222;
-  color: white;
-  text-align: center;
-  padding: 50px;
-  z-index: 1;
-}
-
-.black-header {
-  position: absolute;
-  top: 500px;
-  left: -10px;
-  position: relative; /* ou absolute / fixed */
-  z-index: 100;
-}
 
 .img1 {
   position: absolute;
