@@ -91,7 +91,7 @@ p {
 
 .img6 {
   position: absolute;
-  top: -3800px;
+  top: -3900px;
   left: 830px;
   position: relative; /* ou absolute / fixed */
   z-index: 100;
