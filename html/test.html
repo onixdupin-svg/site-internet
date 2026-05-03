@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Contact</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(90deg, #ffd900, #ff8800);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+
+.form-container {
+  background: #ffa600;
+  padding: 30px;
+  border-radius: 15px;
+  width: 350px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #eec85faf;
+  color: white;
+}
+
+input:focus, textarea:focus {
+  border: 1px solid #22c55e;
+}
+
+textarea {
+  height: 120px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ffd900, #ff5e00);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #fce301;
+}
+
+.success {
+  text-align: center;
+  color: #22c55e;
+  margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Contact</h2>
+
+  <form id="contact-form">
+    <input type="text" name="name" placeholder="Votre nom" required>
+    <input type="email" name="email" placeholder="Votre email" required>
+    <textarea name="message" placeholder="Votre message" required></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <div class="success" id="success-message"></div>
+</div>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+  emailjs.init("TA_PUBLIC_KEY"); // 🔑 remplace ici
+})();
+
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  emailjs.send("TON_SERVICE_ID", "TON_TEMPLATE_ID", {
+    from_name: this.name.value,
+    from_email: this.email.value,
+    message: this.message.value
+  })
+  .then(() => {
+    document.getElementById("success-message").innerText = "Message envoyé ✅";
+    this.reset();
+  })
+  .catch((error) => {
+    alert("Erreur : " + JSON.stringify(error));
+  });
+});
+</script>
+
+</body>
+</html>
+
+
